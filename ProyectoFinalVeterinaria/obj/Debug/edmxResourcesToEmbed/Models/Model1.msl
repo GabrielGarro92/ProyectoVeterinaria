@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="VeterinariaModelStoreContainer" CdmEntityContainer="VeterinariaEntities">
+    <EntitySetMapping Name="Citas">
+      <EntityTypeMapping TypeName="VeterinariaModel.Citas">
+        <MappingFragment StoreEntitySet="Citas">
+          <ScalarProperty Name="idCita" ColumnName="idCita" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="idClinica" ColumnName="idClinica" />
+          <ScalarProperty Name="idDueno" ColumnName="idDueno" />
+          <ScalarProperty Name="idTipo" ColumnName="idTipo" />
+          <ScalarProperty Name="idVeterinario" ColumnName="idVeterinario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Clinicas">
+      <EntityTypeMapping TypeName="VeterinariaModel.Clinicas">
+        <MappingFragment StoreEntitySet="Clinicas">
+          <ScalarProperty Name="idClinica" ColumnName="idClinica" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="direccion" ColumnName="direccion" />
+          <ScalarProperty Name="idProvincia" ColumnName="idProvincia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Duenos">
+      <EntityTypeMapping TypeName="VeterinariaModel.Duenos">
+        <MappingFragment StoreEntitySet="Duenos">
+          <ScalarProperty Name="idDueno" ColumnName="idDueno" />
+          <ScalarProperty Name="nombreDueno" ColumnName="nombreDueno" />
+          <ScalarProperty Name="primerApellido" ColumnName="primerApellido" />
+          <ScalarProperty Name="segundoApellido" ColumnName="segundoApellido" />
+          <ScalarProperty Name="cedula" ColumnName="cedula" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Enfermedades">
+      <EntityTypeMapping TypeName="VeterinariaModel.Enfermedades">
+        <MappingFragment StoreEntitySet="Enfermedades">
+          <ScalarProperty Name="idEnfermedad" ColumnName="idEnfermedad" />
+          <ScalarProperty Name="nombreEnfermedad" ColumnName="nombreEnfermedad" />
+          <ScalarProperty Name="descEnfermedad" ColumnName="descEnfermedad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Historiales">
+      <EntityTypeMapping TypeName="VeterinariaModel.Historiales">
+        <MappingFragment StoreEntitySet="Historiales">
+          <ScalarProperty Name="idHistorial" ColumnName="idHistorial" />
+          <ScalarProperty Name="fecha" ColumnName="fecha" />
+          <ScalarProperty Name="motivoConsulta" ColumnName="motivoConsulta" />
+          <ScalarProperty Name="dignostico" ColumnName="dignostico" />
+          <ScalarProperty Name="idEnfermedad" ColumnName="idEnfermedad" />
+          <ScalarProperty Name="idVeterinario" ColumnName="idVeterinario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mascotas">
+      <EntityTypeMapping TypeName="VeterinariaModel.Mascotas">
+        <MappingFragment StoreEntitySet="Mascotas">
+          <ScalarProperty Name="idMascotas" ColumnName="idMascotas" />
+          <ScalarProperty Name="nombreMascota" ColumnName="nombreMascota" />
+          <ScalarProperty Name="idRaza" ColumnName="idRaza" />
+          <ScalarProperty Name="edad" ColumnName="edad" />
+          <ScalarProperty Name="idHistorial" ColumnName="idHistorial" />
+          <ScalarProperty Name="idDueno" ColumnName="idDueno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Provincias">
+      <EntityTypeMapping TypeName="VeterinariaModel.Provincias">
+        <MappingFragment StoreEntitySet="Provincias">
+          <ScalarProperty Name="idProvincia" ColumnName="idProvincia" />
+          <ScalarProperty Name="descProvincia" ColumnName="descProvincia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Razas">
+      <EntityTypeMapping TypeName="VeterinariaModel.Razas">
+        <MappingFragment StoreEntitySet="Razas">
+          <ScalarProperty Name="idRaza" ColumnName="idRaza" />
+          <ScalarProperty Name="descRaza" ColumnName="descRaza" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoCitas">
+      <EntityTypeMapping TypeName="VeterinariaModel.TipoCitas">
+        <MappingFragment StoreEntitySet="TipoCitas">
+          <ScalarProperty Name="idTipo" ColumnName="idTipo" />
+          <ScalarProperty Name="descTipo" ColumnName="descTipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Veterinarios">
+      <EntityTypeMapping TypeName="VeterinariaModel.Veterinarios">
+        <MappingFragment StoreEntitySet="Veterinarios">
+          <ScalarProperty Name="idVeterinario" ColumnName="idVeterinario" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellido" ColumnName="apellido" />
+          <ScalarProperty Name="cedula" ColumnName="cedula" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

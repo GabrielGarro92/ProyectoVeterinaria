@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="VeterinariaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Citas">
+    <Key>
+      <PropertyRef Name="idCita" />
+    </Key>
+    <Property Name="idCita" Type="Int32" Nullable="false" />
+    <Property Name="fecha" Type="DateTime" Precision="0" />
+    <Property Name="idClinica" Type="Int32" />
+    <Property Name="idDueno" Type="Int32" />
+    <Property Name="idTipo" Type="Int32" />
+    <Property Name="idVeterinario" Type="Int32" />
+    <NavigationProperty Name="Clinicas" Relationship="Self.citas_fk_clinica" FromRole="Citas" ToRole="Clinicas" />
+    <NavigationProperty Name="Duenos" Relationship="Self.citas_fk_duenos" FromRole="Citas" ToRole="Duenos" />
+    <NavigationProperty Name="TipoCitas" Relationship="Self.citas_fk_tipo" FromRole="Citas" ToRole="TipoCitas" />
+    <NavigationProperty Name="Veterinarios" Relationship="Self.citas_fk_veterinario" FromRole="Citas" ToRole="Veterinarios" />
+  </EntityType>
+  <EntityType Name="Clinicas">
+    <Key>
+      <PropertyRef Name="idClinica" />
+    </Key>
+    <Property Name="idClinica" Type="Int32" Nullable="false" />
+    <Property Name="telefono" Type="Int32" />
+    <Property Name="direccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="idProvincia" Type="Int32" />
+    <NavigationProperty Name="Citas" Relationship="Self.citas_fk_clinica" FromRole="Clinicas" ToRole="Citas" />
+    <NavigationProperty Name="Provincias" Relationship="Self.clinicas_fk_provincias" FromRole="Clinicas" ToRole="Provincias" />
+  </EntityType>
+  <EntityType Name="Duenos">
+    <Key>
+      <PropertyRef Name="idDueno" />
+    </Key>
+    <Property Name="idDueno" Type="Int32" Nullable="false" />
+    <Property Name="nombreDueno" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="primerApellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="segundoApellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cedula" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="telefono" Type="Int32" />
+    <NavigationProperty Name="Citas" Relationship="Self.citas_fk_duenos" FromRole="Duenos" ToRole="Citas" />
+    <NavigationProperty Name="Mascotas" Relationship="Self.mascotas_fk_duenos" FromRole="Duenos" ToRole="Mascotas" />
+  </EntityType>
+  <EntityType Name="Enfermedades">
+    <Key>
+      <PropertyRef Name="idEnfermedad" />
+    </Key>
+    <Property Name="idEnfermedad" Type="Int32" Nullable="false" />
+    <Property Name="nombreEnfermedad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="descEnfermedad" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Historiales" Relationship="Self.historiales_fk_enfermedades" FromRole="Enfermedades" ToRole="Historiales" />
+  </EntityType>
+  <EntityType Name="Historiales">
+    <Key>
+      <PropertyRef Name="idHistorial" />
+    </Key>
+    <Property Name="idHistorial" Type="Int32" Nullable="false" />
+    <Property Name="fecha" Type="DateTime" Precision="0" />
+    <Property Name="motivoConsulta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dignostico" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="idEnfermedad" Type="Int32" />
+    <Property Name="idVeterinario" Type="Int32" />
+    <NavigationProperty Name="Enfermedades" Relationship="Self.historiales_fk_enfermedades" FromRole="Historiales" ToRole="Enfermedades" />
+    <NavigationProperty Name="Veterinarios" Relationship="Self.historiales_fk_veterinarios" FromRole="Historiales" ToRole="Veterinarios" />
+    <NavigationProperty Name="Mascotas" Relationship="Self.mascotas_fk_hisoriales" FromRole="Historiales" ToRole="Mascotas" />
+  </EntityType>
+  <EntityType Name="Mascotas">
+    <Key>
+      <PropertyRef Name="idMascotas" />
+    </Key>
+    <Property Name="idMascotas" Type="Int32" Nullable="false" />
+    <Property Name="nombreMascota" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="idRaza" Type="Int32" />
+    <Property Name="edad" Type="Int32" />
+    <Property Name="idHistorial" Type="Int32" />
+    <Property Name="idDueno" Type="Int32" />
+    <NavigationProperty Name="Duenos" Relationship="Self.mascotas_fk_duenos" FromRole="Mascotas" ToRole="Duenos" />
+    <NavigationProperty Name="Historiales" Relationship="Self.mascotas_fk_hisoriales" FromRole="Mascotas" ToRole="Historiales" />
+    <NavigationProperty Name="Razas" Relationship="Self.mascotas_fk_raza" FromRole="Mascotas" ToRole="Razas" />
+  </EntityType>
+  <EntityType Name="Provincias">
+    <Key>
+      <PropertyRef Name="idProvincia" />
+    </Key>
+    <Property Name="idProvincia" Type="Int32" Nullable="false" />
+    <Property Name="descProvincia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Clinicas" Relationship="Self.clinicas_fk_provincias" FromRole="Provincias" ToRole="Clinicas" />
+  </EntityType>
+  <EntityType Name="Razas">
+    <Key>
+      <PropertyRef Name="idRaza" />
+    </Key>
+    <Property Name="idRaza" Type="Int32" Nullable="false" />
+    <Property Name="descRaza" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Mascotas" Relationship="Self.mascotas_fk_raza" FromRole="Razas" ToRole="Mascotas" />
+  </EntityType>
+  <EntityType Name="TipoCitas">
+    <Key>
+      <PropertyRef Name="idTipo" />
+    </Key>
+    <Property Name="idTipo" Type="Int32" Nullable="false" />
+    <Property Name="descTipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Citas" Relationship="Self.citas_fk_tipo" FromRole="TipoCitas" ToRole="Citas" />
+  </EntityType>
+  <EntityType Name="Veterinarios">
+    <Key>
+      <PropertyRef Name="idVeterinario" />
+    </Key>
+    <Property Name="idVeterinario" Type="Int32" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="apellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="cedula" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+    <Property Name="correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Citas" Relationship="Self.citas_fk_veterinario" FromRole="Veterinarios" ToRole="Citas" />
+    <NavigationProperty Name="Historiales" Relationship="Self.historiales_fk_veterinarios" FromRole="Veterinarios" ToRole="Historiales" />
+  </EntityType>
+  <Association Name="citas_fk_clinica">
+    <End Role="Clinicas" Type="Self.Clinicas" Multiplicity="0..1" />
+    <End Role="Citas" Type="Self.Citas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clinicas">
+        <PropertyRef Name="idClinica" />
+      </Principal>
+      <Dependent Role="Citas">
+        <PropertyRef Name="idClinica" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="citas_fk_duenos">
+    <End Role="Duenos" Type="Self.Duenos" Multiplicity="0..1" />
+    <End Role="Citas" Type="Self.Citas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Duenos">
+        <PropertyRef Name="idDueno" />
+      </Principal>
+      <Dependent Role="Citas">
+        <PropertyRef Name="idDueno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="citas_fk_tipo">
+    <End Role="TipoCitas" Type="Self.TipoCitas" Multiplicity="0..1" />
+    <End Role="Citas" Type="Self.Citas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoCitas">
+        <PropertyRef Name="idTipo" />
+      </Principal>
+      <Dependent Role="Citas">
+        <PropertyRef Name="idTipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="citas_fk_veterinario">
+    <End Role="Veterinarios" Type="Self.Veterinarios" Multiplicity="0..1" />
+    <End Role="Citas" Type="Self.Citas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Veterinarios">
+        <PropertyRef Name="idVeterinario" />
+      </Principal>
+      <Dependent Role="Citas">
+        <PropertyRef Name="idTipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="clinicas_fk_provincias">
+    <End Role="Provincias" Type="Self.Provincias" Multiplicity="0..1" />
+    <End Role="Clinicas" Type="Self.Clinicas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Provincias">
+        <PropertyRef Name="idProvincia" />
+      </Principal>
+      <Dependent Role="Clinicas">
+        <PropertyRef Name="idProvincia" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="mascotas_fk_duenos">
+    <End Role="Duenos" Type="Self.Duenos" Multiplicity="0..1" />
+    <End Role="Mascotas" Type="Self.Mascotas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Duenos">
+        <PropertyRef Name="idDueno" />
+      </Principal>
+      <Dependent Role="Mascotas">
+        <PropertyRef Name="idDueno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="historiales_fk_enfermedades">
+    <End Role="Enfermedades" Type="Self.Enfermedades" Multiplicity="0..1" />
+    <End Role="Historiales" Type="Self.Historiales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Enfermedades">
+        <PropertyRef Name="idEnfermedad" />
+      </Principal>
+      <Dependent Role="Historiales">
+        <PropertyRef Name="idEnfermedad" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="historiales_fk_veterinarios">
+    <End Role="Veterinarios" Type="Self.Veterinarios" Multiplicity="0..1" />
+    <End Role="Historiales" Type="Self.Historiales" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Veterinarios">
+        <PropertyRef Name="idVeterinario" />
+      </Principal>
+      <Dependent Role="Historiales">
+        <PropertyRef Name="idVeterinario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="mascotas_fk_hisoriales">
+    <End Role="Historiales" Type="Self.Historiales" Multiplicity="0..1" />
+    <End Role="Mascotas" Type="Self.Mascotas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Historiales">
+        <PropertyRef Name="idHistorial" />
+      </Principal>
+      <Dependent Role="Mascotas">
+        <PropertyRef Name="idHistorial" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="mascotas_fk_raza">
+    <End Role="Razas" Type="Self.Razas" Multiplicity="0..1" />
+    <End Role="Mascotas" Type="Self.Mascotas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Razas">
+        <PropertyRef Name="idRaza" />
+      </Principal>
+      <Dependent Role="Mascotas">
+        <PropertyRef Name="idRaza" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="VeterinariaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Citas" EntityType="Self.Citas" />
+    <EntitySet Name="Clinicas" EntityType="Self.Clinicas" />
+    <EntitySet Name="Duenos" EntityType="Self.Duenos" />
+    <EntitySet Name="Enfermedades" EntityType="Self.Enfermedades" />
+    <EntitySet Name="Historiales" EntityType="Self.Historiales" />
+    <EntitySet Name="Mascotas" EntityType="Self.Mascotas" />
+    <EntitySet Name="Provincias" EntityType="Self.Provincias" />
+    <EntitySet Name="Razas" EntityType="Self.Razas" />
+    <EntitySet Name="TipoCitas" EntityType="Self.TipoCitas" />
+    <EntitySet Name="Veterinarios" EntityType="Self.Veterinarios" />
+    <AssociationSet Name="citas_fk_clinica" Association="Self.citas_fk_clinica">
+      <End Role="Clinicas" EntitySet="Clinicas" />
+      <End Role="Citas" EntitySet="Citas" />
+    </AssociationSet>
+    <AssociationSet Name="citas_fk_duenos" Association="Self.citas_fk_duenos">
+      <End Role="Duenos" EntitySet="Duenos" />
+      <End Role="Citas" EntitySet="Citas" />
+    </AssociationSet>
+    <AssociationSet Name="citas_fk_tipo" Association="Self.citas_fk_tipo">
+      <End Role="TipoCitas" EntitySet="TipoCitas" />
+      <End Role="Citas" EntitySet="Citas" />
+    </AssociationSet>
+    <AssociationSet Name="citas_fk_veterinario" Association="Self.citas_fk_veterinario">
+      <End Role="Veterinarios" EntitySet="Veterinarios" />
+      <End Role="Citas" EntitySet="Citas" />
+    </AssociationSet>
+    <AssociationSet Name="clinicas_fk_provincias" Association="Self.clinicas_fk_provincias">
+      <End Role="Provincias" EntitySet="Provincias" />
+      <End Role="Clinicas" EntitySet="Clinicas" />
+    </AssociationSet>
+    <AssociationSet Name="mascotas_fk_duenos" Association="Self.mascotas_fk_duenos">
+      <End Role="Duenos" EntitySet="Duenos" />
+      <End Role="Mascotas" EntitySet="Mascotas" />
+    </AssociationSet>
+    <AssociationSet Name="historiales_fk_enfermedades" Association="Self.historiales_fk_enfermedades">
+      <End Role="Enfermedades" EntitySet="Enfermedades" />
+      <End Role="Historiales" EntitySet="Historiales" />
+    </AssociationSet>
+    <AssociationSet Name="historiales_fk_veterinarios" Association="Self.historiales_fk_veterinarios">
+      <End Role="Veterinarios" EntitySet="Veterinarios" />
+      <End Role="Historiales" EntitySet="Historiales" />
+    </AssociationSet>
+    <AssociationSet Name="mascotas_fk_hisoriales" Association="Self.mascotas_fk_hisoriales">
+      <End Role="Historiales" EntitySet="Historiales" />
+      <End Role="Mascotas" EntitySet="Mascotas" />
+    </AssociationSet>
+    <AssociationSet Name="mascotas_fk_raza" Association="Self.mascotas_fk_raza">
+      <End Role="Razas" EntitySet="Razas" />
+      <End Role="Mascotas" EntitySet="Mascotas" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
