@@ -24,23 +24,25 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.telefono)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.direccion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Provincias.descProvincia)
-        </td>
-        <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.idClinica }) |
-            @Html.ActionLink("Detalles", "Details", new { id=item.idClinica }) |
-            @Html.ActionLink("Eliminar", "Delete", new { id=item.idClinica })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.direccion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Provincias.descProvincia)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.idClinica }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.idClinica }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.idClinica })
+            </td>
+        </tr>
+
+    }
 
 </table>

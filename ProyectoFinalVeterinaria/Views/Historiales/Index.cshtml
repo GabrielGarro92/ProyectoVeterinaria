@@ -30,29 +30,30 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.fecha)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.motivoConsulta)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.dignostico)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Enfermedades.nombreEnfermedad)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Veterinarios.nombre)
-        </td>
-        <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.idHistorial }) |
-            @Html.ActionLink("Detalles", "Details", new { id=item.idHistorial }) |
-            @Html.ActionLink("Eliminar", "Delete", new { id=item.idHistorial })
-        </td>
-    </tr>
-}
-
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.fecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.motivoConsulta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.dignostico)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Enfermedades.nombreEnfermedad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Veterinarios.nombre)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.idHistorial }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.idHistorial }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.idHistorial })
+            </td>
+        </tr>
+    }
+    
 </table>

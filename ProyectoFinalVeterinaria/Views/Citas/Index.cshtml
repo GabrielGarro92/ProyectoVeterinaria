@@ -33,32 +33,33 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.fecha)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.idVeterinario)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Clinicas.direccion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Duenos.nombreDueno)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TipoCitas.descTipo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Veterinarios.nombre)
-        </td>
-        <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.idCita }) |
-            @Html.ActionLink("Detalles", "Details", new { id=item.idCita }) |
-            @Html.ActionLink("Eliminar", "Delete", new { id=item.idCita })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.fecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.idVeterinario)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Clinicas.direccion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Duenos.nombreDueno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoCitas.descTipo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Veterinarios.nombre)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.idCita }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.idCita }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.idCita })
+            </td>
+        </tr>
+    }
 
 </table>

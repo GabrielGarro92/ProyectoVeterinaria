@@ -33,32 +33,33 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.nombreDueno)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.primerApellido)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.segundoApellido)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.cedula)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.correo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.telefono)
-        </td>
-        <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.idDueno }) |
-            @Html.ActionLink("Detalles", "Details", new { id=item.idDueno }) |
-            @Html.ActionLink("Eliminar", "Delete", new { id=item.idDueno })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombreDueno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.primerApellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.segundoApellido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cedula)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.correo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.telefono)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.idDueno }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.idDueno }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.idDueno })
+            </td>
+        </tr>
+    }
 
 </table>
