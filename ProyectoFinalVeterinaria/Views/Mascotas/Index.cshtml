@@ -1,0 +1,58 @@
+﻿@model IEnumerable<ProyectoFinalVeterinaria.Models.Mascotas>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nombreMascota)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.edad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Duenos.nombreDueno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Historiales.motivoConsulta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Razas.descRaza)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombreMascota)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.edad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Duenos.nombreDueno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Historiales.motivoConsulta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Razas.descRaza)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idMascotas }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idMascotas }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idMascotas })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,67 @@
+﻿@model ProyectoFinalVeterinaria.Models.Citas
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Citas</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.idVeterinario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idVeterinario)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Clinicas.direccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Clinicas.direccion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Duenos.nombreDueno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Duenos.nombreDueno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TipoCitas.descTipo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TipoCitas.descTipo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Veterinarios.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Veterinarios.nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idCita }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

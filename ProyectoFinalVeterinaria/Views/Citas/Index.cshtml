@@ -1,0 +1,64 @@
+﻿@model IEnumerable<ProyectoFinalVeterinaria.Models.Citas>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.idVeterinario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Clinicas.direccion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Duenos.nombreDueno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TipoCitas.descTipo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Veterinarios.nombre)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.idVeterinario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Clinicas.direccion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Duenos.nombreDueno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TipoCitas.descTipo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Veterinarios.nombre)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idCita }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idCita }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idCita })
+        </td>
+    </tr>
+}
+
+</table>
