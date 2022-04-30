@@ -20,6 +20,8 @@ namespace ProyectoFinalVeterinaria.Models
 
         [Required(ErrorMessage = "Seleccione la fecha")]
         [DataType(DataType.Date)]
+
+        [Display(Name = "Fecha")]
         public Nullable<System.DateTime> fecha { get; set; }
 
         [Required(ErrorMessage = "Seleccione una clinica")]
@@ -33,6 +35,7 @@ namespace ProyectoFinalVeterinaria.Models
 
 
         [Required(ErrorMessage = "Seleccione un id de veterinario")]
+        [Display(Name = "Id Veterinario")]
         public Nullable<int> idVeterinario { get; set; }
 
         public virtual Clinicas Clinicas { get; set; }

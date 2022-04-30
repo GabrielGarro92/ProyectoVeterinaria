@@ -21,13 +21,14 @@ namespace ProyectoFinalVeterinaria.Models
 
         [Required(ErrorMessage = "Digite el nombre")]
         [StringLength(16, ErrorMessage = "Nombre muy largo")]
+        [Display(Name = "Nombre de la mascota")]
         public string nombreMascota { get; set; }
 
         [Required(ErrorMessage = "Seleccione la raza")]
         public Nullable<int> idRaza { get; set; }
 
         [Required(ErrorMessage = "Digite la edad")]
-
+        [Display(Name = "Edad")]
         public Nullable<int> edad { get; set; }
 
         [Required(ErrorMessage = "Digite el id del historial")]

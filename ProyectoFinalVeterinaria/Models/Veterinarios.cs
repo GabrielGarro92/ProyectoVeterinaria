@@ -24,23 +24,28 @@ namespace ProyectoFinalVeterinaria.Models
 
 
         [Required(ErrorMessage = "Digite el id")]
+        
         public int idVeterinario { get; set; }
 
         [Required(ErrorMessage = "Digite el nombre")]
         [StringLength(16, ErrorMessage = "Nombre muy largo")]
+        [Display(Name = "Nombre del Veterinario")]
         public string nombre { get; set; }
 
         [Required(ErrorMessage = "Digite el apellido")]
         [StringLength(16, ErrorMessage = "Apellido muy largo")]
+        [Display(Name = "Apellido")]
         public string apellido { get; set; }
 
         [Required(ErrorMessage = "Digite la cedula")]
         [StringLength(10, ErrorMessage = "Cedula muy larga")]
+        [Display(Name = "Cédula")]
         public string cedula { get; set; }
 
         [Required(ErrorMessage = "Digite el correo")]
         [StringLength(25, ErrorMessage = "Correo muy largo")]
         [EmailAddress(ErrorMessage = "Debe tener el formato axxxxxx@correo.com")]
+        [Display(Name = "Correo electrónico")]
         public string correo { get; set; }
 
 

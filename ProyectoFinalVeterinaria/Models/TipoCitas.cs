@@ -26,6 +26,7 @@ namespace ProyectoFinalVeterinaria.Models
 
         [Required(ErrorMessage = "Digite la descripción")]
         [StringLength(50, ErrorMessage = "Descripción muy larga")]
+        [Display(Name = "Descripción")]
         public string descTipo { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

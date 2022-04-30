@@ -26,12 +26,15 @@ namespace ProyectoFinalVeterinaria.Models
 
         [Required(ErrorMessage = "Seleccione la fecha")]
         [DataType(DataType.Date)]
+        [Display(Name = "Fecha")]
         public Nullable<System.DateTime> fecha { get; set; }
 
         [Required(ErrorMessage = "Digite el motivo de la consulta")]
+        [Display(Name = "Motivo de la Consulta")]
         public string motivoConsulta { get; set; }
 
         [Required(ErrorMessage = "Digite el diagnostico")]
+        [Display(Name = "Diagnóstico")]
         public string dignostico { get; set; }
 
         [Required(ErrorMessage = "Seleccione la enfermedad")]

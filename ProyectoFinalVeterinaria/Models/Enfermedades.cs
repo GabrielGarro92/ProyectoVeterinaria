@@ -26,10 +26,12 @@ namespace ProyectoFinalVeterinaria.Models
 
         [Required(ErrorMessage = "Digite nombre de la enfermedad")]
         [StringLength(16, ErrorMessage = "Nombre muy largo")]
+        [Display(Name = "Nombre de la enfermedad")]
         public string nombreEnfermedad { get; set; }
 
         [Required(ErrorMessage = "Digite la descripción de la enfermedad")]
         [StringLength(16, ErrorMessage = "Descripción muy larga")]
+        [Display(Name = "Descripción de la enfermedad")]
         public string descEnfermedad { get; set; }
 
 

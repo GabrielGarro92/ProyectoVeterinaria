@@ -26,6 +26,7 @@ namespace ProyectoFinalVeterinaria.Models
 
         [Required(ErrorMessage = "Digite la descripción")]
         [StringLength(50, ErrorMessage = "Descripción muy larga")]
+        [Display(Name = "Descripción de la raza")]
         public string descRaza { get; set; }
 
 

@@ -25,9 +25,11 @@ namespace ProyectoFinalVeterinaria.Models
         public int idClinica { get; set; }
 
         [Required(ErrorMessage = "Digite un numero de telefono")]
+        [Display(Name = "Teléfono")]
         public Nullable<int> telefono { get; set; }
 
         [Required(ErrorMessage = "Digite una dirección")]
+        [Display(Name = "Dirección")]
         public string direccion { get; set; }
 
         [Required(ErrorMessage = "Seleccione la provincia")]

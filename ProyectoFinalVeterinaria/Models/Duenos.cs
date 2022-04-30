@@ -27,28 +27,33 @@ namespace ProyectoFinalVeterinaria.Models
 
         [Required(ErrorMessage = "Digite un nombre")]
         [StringLength(16, ErrorMessage = "Nombre")]
-
+        [Display(Name = "Nombre de Dueño")]
         public string nombreDueno { get; set; }
 
         [Required(ErrorMessage = "Digite el primer apellido")]
         [StringLength(16, ErrorMessage = "Apellido muy largo")]
+        [Display(Name = "Primer Apellido")]
         public string primerApellido { get; set; }
 
         [Required(ErrorMessage = "Digite el segundo apellido")]
         [StringLength(16, ErrorMessage = "Apellido muy largo")]
+        [Display(Name = "Segundo Apellido")]
         public string segundoApellido { get; set; }
 
         [Required(ErrorMessage = "Digite la cedula")]
         [RegularExpression("(^[0-9]+$)", ErrorMessage = "Solo se permiten números")]
+        [Display(Name = "Cédula")]
         public string cedula { get; set; }
 
 
         [Required(ErrorMessage = "Digite el correo")]
         [EmailAddress(ErrorMessage = "Debe tener el formato axxxxxx@correo.com")]
+        [Display(Name = "Correo")]
         public string correo { get; set; }
 
         [Required(ErrorMessage = "Digite la cedula")]
         [RegularExpression("(^[0-9]+$)", ErrorMessage = "Solo se permiten números")]
+        [Display(Name = "Teléfono")]
         public Nullable<int> telefono { get; set; }
 
 
