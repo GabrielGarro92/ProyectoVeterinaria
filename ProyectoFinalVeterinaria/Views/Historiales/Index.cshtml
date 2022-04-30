@@ -1,14 +1,14 @@
 ﻿@model IEnumerable<ProyectoFinalVeterinaria.Models.Historiales>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Historial";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Agregar", "Create")
 </p>
 <table class="table">
     <tr>
@@ -48,9 +48,9 @@
             @Html.DisplayFor(modelItem => item.Veterinarios.nombre)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idHistorial }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idHistorial }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idHistorial })
+            @Html.ActionLink("Editar", "Edit", new { id=item.idHistorial }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.idHistorial }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.idHistorial })
         </td>
     </tr>
 }

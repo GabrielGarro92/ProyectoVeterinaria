@@ -136,7 +136,6 @@
     <Compile Include="Controllers\HistorialesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MascotasController.cs" />
-    <Compile Include="Controllers\ProvinciasController.cs" />
     <Compile Include="Controllers\RazasController.cs" />
     <Compile Include="Controllers\TipoCitasController.cs" />
     <Compile Include="Controllers\VeterinariosController.cs" />
@@ -277,11 +276,6 @@
     <Content Include="Views\Mascotas\Details.cshtml" />
     <Content Include="Views\Mascotas\Edit.cshtml" />
     <Content Include="Views\Mascotas\Index.cshtml" />
-    <Content Include="Views\Provincias\Create.cshtml" />
-    <Content Include="Views\Provincias\Delete.cshtml" />
-    <Content Include="Views\Provincias\Details.cshtml" />
-    <Content Include="Views\Provincias\Edit.cshtml" />
-    <Content Include="Views\Provincias\Index.cshtml" />
     <Content Include="Views\Razas\Create.cshtml" />
     <Content Include="Views\Razas\Delete.cshtml" />
     <Content Include="Views\Razas\Details.cshtml" />

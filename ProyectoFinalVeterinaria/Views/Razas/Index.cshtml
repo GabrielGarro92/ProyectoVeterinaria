@@ -1,14 +1,14 @@
 ﻿@model IEnumerable<ProyectoFinalVeterinaria.Models.Razas>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Registro de razas de mascotas";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Agregar", "Create")
 </p>
 <table class="table">
     <tr>
@@ -24,9 +24,9 @@
             @Html.DisplayFor(modelItem => item.descRaza)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idRaza }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idRaza }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idRaza })
+            @Html.ActionLink("Editar", "Edit", new { id=item.idRaza }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.idRaza }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.idRaza })
         </td>
     </tr>
 }

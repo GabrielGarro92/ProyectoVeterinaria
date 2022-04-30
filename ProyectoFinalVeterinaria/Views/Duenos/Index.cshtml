@@ -1,14 +1,14 @@
 ﻿@model IEnumerable<ProyectoFinalVeterinaria.Models.Duenos>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Dueños de Mascotas";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Agregar Dueño", "Create")
 </p>
 <table class="table">
     <tr>
@@ -54,9 +54,9 @@
             @Html.DisplayFor(modelItem => item.telefono)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idDueno }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idDueno }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idDueno })
+            @Html.ActionLink("Editar", "Edit", new { id=item.idDueno }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.idDueno }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.idDueno })
         </td>
     </tr>
 }

@@ -1,14 +1,14 @@
 ﻿@model IEnumerable<ProyectoFinalVeterinaria.Models.Clinicas>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Clínicas Veterinarias";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Nueva Clínica", "Create")
 </p>
 <table class="table">
     <tr>
@@ -36,9 +36,9 @@
             @Html.DisplayFor(modelItem => item.Provincias.descProvincia)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idClinica }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idClinica }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idClinica })
+            @Html.ActionLink("Editar", "Edit", new { id=item.idClinica }) |
+            @Html.ActionLink("Detalles", "Details", new { id=item.idClinica }) |
+            @Html.ActionLink("Eliminar", "Delete", new { id=item.idClinica })
         </td>
     </tr>
 }
