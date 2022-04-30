@@ -11,7 +11,8 @@ namespace ProyectoFinalVeterinaria.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Clinicas
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,14 +20,23 @@ namespace ProyectoFinalVeterinaria.Models
         {
             this.Citas = new HashSet<Citas>();
         }
-    
+
+        [Required(ErrorMessage = "Digite un id")]
         public int idClinica { get; set; }
+
+        [Required(ErrorMessage = "Digite un numero de telefono")]
         public Nullable<int> telefono { get; set; }
+
+        [Required(ErrorMessage = "Digite una dirección")]
         public string direccion { get; set; }
+
+        [Required(ErrorMessage = "Seleccione la provincia")]
         public Nullable<int> idProvincia { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
         public virtual ICollection<Citas> Citas { get; set; }
+
         public virtual Provincias Provincias { get; set; }
     }
 }

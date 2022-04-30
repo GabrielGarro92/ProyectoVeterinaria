@@ -11,7 +11,8 @@ namespace ProyectoFinalVeterinaria.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Historiales
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,14 +20,27 @@ namespace ProyectoFinalVeterinaria.Models
         {
             this.Mascotas = new HashSet<Mascotas>();
         }
-    
+
+        [Required(ErrorMessage = "Digite el id")]
         public int idHistorial { get; set; }
+
+        [Required(ErrorMessage = "Seleccione la fecha")]
+        [DataType(DataType.Date)]
         public Nullable<System.DateTime> fecha { get; set; }
+
+        [Required(ErrorMessage = "Digite el motivo de la consulta")]
         public string motivoConsulta { get; set; }
+
+        [Required(ErrorMessage = "Digite el diagnostico")]
         public string dignostico { get; set; }
+
+        [Required(ErrorMessage = "Seleccione la enfermedad")]
         public Nullable<int> idEnfermedad { get; set; }
+
+        [Required(ErrorMessage = "Seleccione el veterinario")]
         public Nullable<int> idVeterinario { get; set; }
-    
+
+
         public virtual Enfermedades Enfermedades { get; set; }
         public virtual Veterinarios Veterinarios { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -11,19 +11,38 @@ namespace ProyectoFinalVeterinaria.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Citas
     {
+        [Required(ErrorMessage = "Digite un id")]
         public int idCita { get; set; }
+
+        [Required(ErrorMessage = "Seleccione la fecha")]
+        [DataType(DataType.Date)]
         public Nullable<System.DateTime> fecha { get; set; }
+
+        [Required(ErrorMessage = "Seleccione una clinica")]
         public Nullable<int> idClinica { get; set; }
+
+        [Required(ErrorMessage = "Seleccione un dueño")]
         public Nullable<int> idDueno { get; set; }
+
+        [Required(ErrorMessage = "Seleccione un tipo")]
         public Nullable<int> idTipo { get; set; }
+
+
+        [Required(ErrorMessage = "Seleccione un id de veterinario")]
         public Nullable<int> idVeterinario { get; set; }
-    
+
         public virtual Clinicas Clinicas { get; set; }
+
         public virtual Duenos Duenos { get; set; }
+
+
         public virtual TipoCitas TipoCitas { get; set; }
+
+
         public virtual Veterinarios Veterinarios { get; set; }
     }
 }

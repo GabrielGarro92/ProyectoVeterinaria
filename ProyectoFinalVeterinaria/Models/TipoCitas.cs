@@ -11,7 +11,8 @@ namespace ProyectoFinalVeterinaria.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class TipoCitas
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,10 +20,14 @@ namespace ProyectoFinalVeterinaria.Models
         {
             this.Citas = new HashSet<Citas>();
         }
-    
+
+        [Required(ErrorMessage = "Digite el id")]
         public int idTipo { get; set; }
+
+        [Required(ErrorMessage = "Digite la descripción")]
+        [StringLength(50, ErrorMessage = "Descripción muy larga")]
         public string descTipo { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Citas> Citas { get; set; }
     }

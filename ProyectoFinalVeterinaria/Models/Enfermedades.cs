@@ -11,7 +11,8 @@ namespace ProyectoFinalVeterinaria.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Enfermedades
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,11 +20,19 @@ namespace ProyectoFinalVeterinaria.Models
         {
             this.Historiales = new HashSet<Historiales>();
         }
-    
+
+        [Required(ErrorMessage = "Digite el id")]
         public int idEnfermedad { get; set; }
+
+        [Required(ErrorMessage = "Digite nombre de la enfermedad")]
+        [StringLength(16, ErrorMessage = "Nombre muy largo")]
         public string nombreEnfermedad { get; set; }
+
+        [Required(ErrorMessage = "Digite la descripción de la enfermedad")]
+        [StringLength(16, ErrorMessage = "Descripción muy larga")]
         public string descEnfermedad { get; set; }
-    
+
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Historiales> Historiales { get; set; }
     }

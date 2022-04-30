@@ -11,7 +11,8 @@ namespace ProyectoFinalVeterinaria.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Veterinarios
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,13 +21,30 @@ namespace ProyectoFinalVeterinaria.Models
             this.Citas = new HashSet<Citas>();
             this.Historiales = new HashSet<Historiales>();
         }
-    
+
+
+        [Required(ErrorMessage = "Digite el id")]
         public int idVeterinario { get; set; }
+
+        [Required(ErrorMessage = "Digite el nombre")]
+        [StringLength(16, ErrorMessage = "Nombre muy largo")]
         public string nombre { get; set; }
+
+        [Required(ErrorMessage = "Digite el apellido")]
+        [StringLength(16, ErrorMessage = "Apellido muy largo")]
         public string apellido { get; set; }
+
+        [Required(ErrorMessage = "Digite la cedula")]
+        [StringLength(10, ErrorMessage = "Cedula muy larga")]
         public string cedula { get; set; }
+
+        [Required(ErrorMessage = "Digite el correo")]
+        [StringLength(25, ErrorMessage = "Correo muy largo")]
+        [EmailAddress(ErrorMessage = "Debe tener el formato axxxxxx@correo.com")]
         public string correo { get; set; }
-    
+
+
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Citas> Citas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

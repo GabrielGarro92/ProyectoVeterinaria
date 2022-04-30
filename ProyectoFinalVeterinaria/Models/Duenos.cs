@@ -11,7 +11,8 @@ namespace ProyectoFinalVeterinaria.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Duenos
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,15 +21,37 @@ namespace ProyectoFinalVeterinaria.Models
             this.Citas = new HashSet<Citas>();
             this.Mascotas = new HashSet<Mascotas>();
         }
-    
+
+        [Required(ErrorMessage = "Digite un id")]
         public int idDueno { get; set; }
+
+        [Required(ErrorMessage = "Digite un nombre")]
+        [StringLength(16, ErrorMessage = "Nombre")]
+
         public string nombreDueno { get; set; }
+
+        [Required(ErrorMessage = "Digite el primer apellido")]
+        [StringLength(16, ErrorMessage = "Apellido muy largo")]
         public string primerApellido { get; set; }
+
+        [Required(ErrorMessage = "Digite el segundo apellido")]
+        [StringLength(16, ErrorMessage = "Apellido muy largo")]
         public string segundoApellido { get; set; }
+
+        [Required(ErrorMessage = "Digite la cedula")]
+        [RegularExpression("(^[0-9]+$)", ErrorMessage = "Solo se permiten números")]
         public string cedula { get; set; }
+
+
+        [Required(ErrorMessage = "Digite el correo")]
+        [EmailAddress(ErrorMessage = "Debe tener el formato axxxxxx@correo.com")]
         public string correo { get; set; }
+
+        [Required(ErrorMessage = "Digite la cedula")]
+        [RegularExpression("(^[0-9]+$)", ErrorMessage = "Solo se permiten números")]
         public Nullable<int> telefono { get; set; }
-    
+
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Citas> Citas { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

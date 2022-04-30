@@ -11,7 +11,7 @@ namespace ProyectoFinalVeterinaria.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
     public partial class Provincias
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,7 +19,8 @@ namespace ProyectoFinalVeterinaria.Models
         {
             this.Clinicas = new HashSet<Clinicas>();
         }
-    
+        
+        [Display(Name = "Provincia")]
         public int idProvincia { get; set; }
         public string descProvincia { get; set; }
     

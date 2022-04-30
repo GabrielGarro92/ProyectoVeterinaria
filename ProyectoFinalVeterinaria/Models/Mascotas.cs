@@ -11,16 +11,32 @@ namespace ProyectoFinalVeterinaria.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Mascotas
     {
+
+        [Required(ErrorMessage = "Digite el id")]
         public int idMascotas { get; set; }
+
+        [Required(ErrorMessage = "Digite el nombre")]
+        [StringLength(16, ErrorMessage = "Nombre muy largo")]
         public string nombreMascota { get; set; }
+
+        [Required(ErrorMessage = "Seleccione la raza")]
         public Nullable<int> idRaza { get; set; }
+
+        [Required(ErrorMessage = "Digite la edad")]
+
         public Nullable<int> edad { get; set; }
+
+        [Required(ErrorMessage = "Digite el id del historial")]
         public Nullable<int> idHistorial { get; set; }
+
+        [Required(ErrorMessage = "Seleccione el dueño")]
         public Nullable<int> idDueno { get; set; }
-    
+
+
         public virtual Duenos Duenos { get; set; }
         public virtual Historiales Historiales { get; set; }
         public virtual Razas Razas { get; set; }
